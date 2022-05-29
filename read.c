@@ -1,13 +1,13 @@
 #include<stdio.h>
 #include<stdlib.h>
-#define MAXLINE 120
+#define MAXLINE 120 /*1行の最大文字数*/
 
-static FILE *fpi;
-static FILE *fpo;
-static char line[MAXLINE];
-static int lineIndex = -1;
+static FILE *fpi; /* Input source file */
+static FILE *fpo; /* Output file of compiler */
+static char line[MAXLINE]; /* Input buffer for one line*/
+static int lineIndex = -1; /* Position of Next read String */
 
-char nextChar(){
+char nextChar(){  /* nextChar Function that Returnss a next string */
 
      char ch;
      if(lineIndex == -1){
@@ -25,16 +25,22 @@ char nextChar(){
      }
      return ch;
 }     
-     state1 : ch = nextChar(); k = 0;A
-	if (charClassT[ch] == letter)
+     state1 : while(ch == ' ') ch == nextChar() ;
+	if(charClassT[ch] == letter)	goto state2;
+	if (charClassT[ch] == digit)	goto state3;
+	if (charClassT[ch] == delimiter) 	goto state4;
+	error();
+     state2: ch = nextChar();
+	if(charClassT[ch] == letter || charClassT[ch] == digit)
 	     goto state2;
-        else
-	     error();
-
-     state2 : a[k++] = ch; ch = nextChar();
-        if (charClassT[ch] == letter || charClassT[ch] == digit)
-             goto state 2;
+	else
+	     goto state5;
+     state3 : ch = nextChar();
+        if  (charClassT[ch] == digit)
+             goto state 3;
 	else 
-	     goto state3;
-     state3 :
+	     goto state5;
+     state4 : ch = nextChar();
+     
+     state5;
  
