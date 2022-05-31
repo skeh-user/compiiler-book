@@ -1,4 +1,4 @@
-# compiiler-book
+# compiler-book
 For study in a compiler's book
 
 this book👇
